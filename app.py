@@ -26,9 +26,11 @@ def bot():
         # return a cat pic
         msg.media('https://cataas.com/cat')
         responded = True
-    if any('hi', 'hello') in incoming_msg:
-        msg.body('Hi there! I am a bot that can send you quotes and cat pics. All you need is ask!')
-        responded = True
+    for each in ['hi', 'hello', 'hey']:
+        if each in incoming_msg:
+            msg.body('Hi there! I am a bot that can send you quotes and cat pics. All you need to do is ask!')
+            responded = True
+            break
     if not responded:
         msg.body('Sorry! I can only serve you famous quotes and cat pics.')
     return str(resp)
